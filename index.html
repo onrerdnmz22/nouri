@@ -168,23 +168,19 @@ input,select {
   border-radius:12px;background:white;color:var(--text);
   font-size:14px;min-height:45px;
 }
-
 input,
 select {
   min-width: 0;
   max-width: 100%;
 }
-
 .form-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0 10px;
 }
-
 .form-grid > div {
   min-width: 0;
 }
-
 input[type="date"] {
   display: block;
   width: 100%;
@@ -195,13 +191,11 @@ input[type="date"] {
   -webkit-appearance: none;
   appearance: none;
 }
-
 @media (max-width: 390px) {
   .form-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
-
 input:focus,select:focus {
   border-color:#7ca58a;outline:2px solid #e0ece2;
 }
@@ -219,63 +213,78 @@ input:disabled {
 }
 .filter-grid label { margin-top:9px; }
 
+.food-list-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
+}
 .food {
+  min-width: 0;
   background: white;
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 10px 12px;
-  margin-top: 8px;
+  border-radius: 16px;
+  padding: 10px;
+  margin: 0;
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
-
-.food-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
+.food-visual {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 88px;
+  margin-bottom: 9px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #edf3ed, #f7f6ef);
+  font-size: 42px;
 }
-
+.food-top { min-width: 0; }
+.food-top > div { min-width: 0; }
 .food-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 750;
+  line-height: 1.35;
   overflow-wrap: anywhere;
 }
-
 .food-info {
   color: var(--muted);
-  font-size: 11px;
-  line-height: 1.5;
-  margin-top: 3px;
+  font-size: 10px;
+  line-height: 1.45;
+  margin-top: 4px;
   overflow-wrap: anywhere;
 }
-
 .status {
   display: inline-block;
-  margin-top: 6px;
-  padding: 4px 7px;
+  max-width: 100%;
+  margin-top: 7px;
+  padding: 4px 6px;
   border-radius: 20px;
-  font-size: 10px;
+  font-size: 9px;
+  line-height: 1.35;
   background: var(--soft);
   color: var(--green);
+  overflow-wrap: anywhere;
 }
 .status.soon { background:var(--yellow);color:#87651c; }
 .status.expired { background:var(--red);color:#a33d32; }
 .status.unknown { background:#f0f1ed;color:#59665d; }
-
 .actions {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+  gap: 5px;
   margin-top: 9px;
 }
-
 .actions button {
-  font-size: 11px;
-  padding: 7px 10px;
+  flex: 1;
+  min-width: 0;
+  font-size: 10px;
+  padding: 7px 5px;
 }
-
 .empty {
   text-align:center;color:var(--muted);
   padding:25px 10px;font-size:13px;line-height:1.6;
 }
+#notificationList:not(.empty) .food { margin-top:8px; }
 .info-card { margin-top:13px; }
 .info-card h3 { margin:0 0 7px;font-size:15px; }
 .info-card p {
@@ -289,7 +298,6 @@ input:disabled {
 .category-row:last-child { border-bottom:0; }
 .category-count { font-weight:750;color:var(--green); }
 
-/* Son kullanma tarihi bilinmiyor alanı */
 .unknown-date-option {
   display:flex;align-items:center;gap:10px;
   margin-top:12px;cursor:pointer;
@@ -345,8 +353,11 @@ input:disabled {
   .stat-card { padding:13px; }
   .nav-item { font-size:9px; }
   .form-grid,.filter-grid { grid-template-columns:1fr; }
+  .food-list-grid { gap:7px; }
+  .food { padding:8px; }
+  .food-visual { min-height:72px; font-size:36px; }
+  .actions button { font-size:9px; }
 }
-
 .expiry-safety-note {
   margin-top: 9px;
   padding: 11px 12px;
@@ -358,7 +369,6 @@ input:disabled {
   line-height: 1.55;
   overflow-wrap: anywhere;
 }
-
 .expiry-safety-note strong {
   display: block;
   font-size: 12px;
@@ -384,14 +394,11 @@ input:disabled {
 </header>
 
 <main>
-  <!-- ANA SAYFA -->
   <section class="view active" id="homeView">
     <div class="welcome">
       <h1>Merhaba! 👋</h1>
       <p>Mutfağını birlikte daha akıllı yönetelim.</p>
     </div>
-
-    <!-- Ana sayfada ayrı Dolabım kartı kaldırıldı. -->
 
     <div class="stats">
       <div class="stat-card">
@@ -434,7 +441,6 @@ input:disabled {
     </button>
   </section>
 
-  <!-- DOLABIM -->
   <section class="view" id="cupboardView">
     <h1 class="page-title">Dolabım</h1>
     <p class="page-subtitle">
@@ -475,7 +481,6 @@ input:disabled {
     <div id="foodList" class="empty">Henüz ürün eklemedin.</div>
   </section>
 
-  <!-- ÜRÜN EKLE / DÜZENLE -->
   <section class="view" id="formView">
     <h1 class="page-title" id="formTitle">Ürün Ekle</h1>
     <p class="page-subtitle">
@@ -529,13 +534,13 @@ input:disabled {
             </select>
           </div>
           <div>
-        <label for="expiry">Son kullanma tarihi</label>
-        <input id="expiry" type="date" required>
+            <label for="expiry">Son kullanma tarihi</label>
+            <input id="expiry" type="date" required>
 
-        <div class="expiry-safety-note">
-          <strong>⚠️ Tüketmeden önce kontrol et</strong>
-          Bu alan, ambalajdaki Son Tüketim Tarihi (STT) veya Tavsiye Edilen Tüketim Tarihi (TETT) bilgisini kaydetmek içindir. Ürünü ambalajındaki saklama talimatlarına göre muhafaza et. Tüketmeden önce ambalajını ve ürünün rengini, kokusunu ve yapısını kontrol et. Şüpheli veya bozulma belirtisi olan ürünü tüketme. Normal görünmesi ya da kokması, ürünün güvenli olduğunu tek başına garanti etmez.
-        </div>
+            <div class="expiry-safety-note">
+              <strong>⚠️ Ürünü kontrol et</strong>
+              Ambalajı ve ürünü kontrol et. Şüphedeysen tüketme.
+            </div>
           </div>
         </div>
 
@@ -545,19 +550,15 @@ input:disabled {
         </label>
 
         <div id="unknownExpiryInfo" class="unknown-expiry-info hidden">
-          <h3>ⓘ Tarih konusunda yardım</h3>
+          <h3>ⓘ Tarih bilgisi yok mu?</h3>
           <p>
-            Ürünün türüne ve saklama koşullarına göre yaklaşık bir
-            hatırlatma tarihi önerebiliriz. Bu tarih kesin bir güvenlik
-            garantisi değildir; ürünün ambalajındaki bilgiler önceliklidir.
+            Uygunsa yaklaşık bir kontrol hatırlatması sunabiliriz. Bu, gerçek SKT değildir.
           </p>
           <div id="estimateResult"></div>
           <button type="button" class="secondary hidden"
             id="useEstimateButton">Önerilen tarihi kullan</button>
           <p class="estimate-note">
-            Öneriler yalnızca genel hatırlatma amaçlıdır. Özellikle
-            bozulabilir gıdalarda ambalaj ve güvenilir saklama talimatları
-            esas alınmalıdır.
+            Bu öneri güvenlik garantisi değildir. Ambalajdaki talimatları esas al.
           </p>
         </div>
 
@@ -576,7 +577,6 @@ input:disabled {
     </div>
   </section>
 
-  <!-- ETİKET OKUT -->
   <section class="view" id="scanView">
     <h1 class="page-title">Etiket Okut</h1>
     <p class="page-subtitle">
@@ -594,7 +594,6 @@ input:disabled {
     </div>
   </section>
 
-  <!-- İSTATİSTİKLER -->
   <section class="view" id="statsView">
     <h1 class="page-title">İstatistikler</h1>
     <p class="page-subtitle">
@@ -626,7 +625,6 @@ input:disabled {
     <div class="card" id="categoryStats"></div>
   </section>
 
-  <!-- PROFİL -->
   <section class="view" id="profileView">
     <h1 class="page-title">Profil</h1>
     <p class="page-subtitle">Nouri deneyimin ve uygulama bilgileri.</p>
@@ -658,7 +656,6 @@ input:disabled {
     </div>
   </section>
 
-  <!-- BİLDİRİMLER -->
   <section class="view" id="notificationsView">
     <h1 class="page-title">Bildirimler</h1>
     <p class="page-subtitle">
@@ -718,7 +715,6 @@ try {
       quantity: f.quantity ?? 1,
       unit: f.unit || "adet",
       category: f.category || "Diğer",
-      // Eski kayıtlarda tarih yoksa bilinmeyen tarih olarak ele al.
       dateUnknown: Boolean(f.dateUnknown || !expiry)
     };
   }) : [];
@@ -812,7 +808,6 @@ $("notificationsButton").addEventListener("click", () => {
   changeView("notificationsView");
 });
 
-/* İstatistikler */
 function renderStats() {
   const soonCount = foods.filter(f => {
     if (isDateUnknown(f)) return false;
@@ -877,7 +872,30 @@ function renderStats() {
   });
 }
 
-/* Dolabım: arama, tarih filtresi ve saklama yeri filtresi */
+/* Ürün türüne göre görsel simge */
+function foodVisualFor(food) {
+  const name = (food.name || "").toLocaleLowerCase("tr");
+  const category = food.category || "";
+
+  if (/süt|yoğurt|peynir|kaşar|tereyağı|ayran|krema/.test(name)) return "🥛";
+  if (/elma|armut|muz|çilek|üzüm|portakal|limon|meyve/.test(name)) return "🍎";
+  if (/domates|salatalık|marul|biber|patates|soğan|sebze|havuç/.test(name)) return "🥬";
+  if (/tavuk|hindi|et|kıyma|balık|somon|sucuk|sosis/.test(name)) return "🍗";
+  if (/ekmek|un|pirinç|bulgur|makarna|yulaf|bakliyat|mercimek|fasulye/.test(name)) return "🍞";
+  if (/su|meyve suyu|içecek|kola|soda/.test(name)) return "🧃";
+
+  const icons = {
+    "Süt ürünleri": "🥛",
+    "Meyve ve sebze": "🥦",
+    "Et ve balık": "🍗",
+    "Bakliyat ve tahıl": "🌾",
+    "İçecekler": "🧃",
+    "Hazır gıdalar": "🥫",
+    "Diğer": "📦"
+  };
+  return icons[category] || "📦";
+}
+
 function renderFoods() {
   const query = $("search").value.trim().toLocaleLowerCase("tr");
   const filter = $("filter").value;
@@ -913,11 +931,16 @@ function renderFoods() {
     return;
   }
 
-  list.className = "";
+  list.className = "food-list-grid";
 
   shown.forEach(food => {
     const card = document.createElement("article");
     card.className = "food";
+
+    const visual = document.createElement("div");
+    visual.className = "food-visual";
+    visual.setAttribute("aria-hidden", "true");
+    visual.textContent = foodVisualFor(food);
 
     const top = document.createElement("div");
     top.className = "food-top";
@@ -945,7 +968,7 @@ function renderFoods() {
 
     details.append(name, info, date, badge);
     top.append(details);
-    card.append(top);
+    card.append(visual, top);
 
     const actions = document.createElement("div");
     actions.className = "actions";
@@ -974,7 +997,7 @@ function renderFoods() {
   });
 }
 
-/* Bildirim ekranı: otomatik bildirim göndermez, yaklaşan tarihleri listeler. */
+/* Otomatik bildirim göndermez; yaklaşan tarihleri listeler. */
 function renderNotifications() {
   const list = $("notificationList");
   list.replaceChildren();
@@ -996,6 +1019,7 @@ function renderNotifications() {
   upcoming.forEach(food => {
     const card = document.createElement("div");
     card.className = "food";
+    card.style.marginTop = "8px";
 
     const name = document.createElement("div");
     name.className = "food-name";
@@ -1016,7 +1040,6 @@ function renderAll() {
   renderNotifications();
 }
 
-/* Ürün düzenleme */
 function startEdit(id) {
   const food = foods.find(f => f.id === id);
   if (!food) return;
@@ -1041,7 +1064,6 @@ function startEdit(id) {
   changeView("formView");
 }
 
-/* Formu sıfırlama */
 function resetForm() {
   editingId = null;
   form.reset();
@@ -1060,8 +1082,7 @@ function resetForm() {
 
 /*
   Tarihi bilinmeyen ürün için sınırlı hatırlatma önerileri.
-  Bu hesaplamalar genel saklama rehberlerine dayalı yaklaşık
-  sürelerdir; ürünün güvenli olduğunu göstermez.
+  Bunlar güvenli tüketim garantisi değildir.
 */
 function getEstimate() {
   const name = $("name").value.trim().toLocaleLowerCase("tr");
@@ -1148,12 +1169,10 @@ $("useEstimateButton").addEventListener("click", () => {
   updateUnknownDateUI();
 });
 
-/* Öneri, ürün adı veya saklama yeri değiştiğinde güncellenir. */
 $("name").addEventListener("input", refreshEstimate);
 $("category").addEventListener("change", refreshEstimate);
 $("location").addEventListener("change", refreshEstimate);
 
-/* Ürün kaydetme */
 form.addEventListener("submit", event => {
   event.preventDefault();
 
