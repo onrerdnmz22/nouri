@@ -345,7 +345,8 @@ form.addEventListener("submit", event => {
   }
   persist();
   resetForm();
-  render();
+ 
+render();
 });
 
 $("cancelEdit").addEventListener("click", resetForm);
@@ -353,6 +354,8 @@ $("search").addEventListener("input", render);
 $("filter").addEventListener("change", render);
 render();
 </script>
+
+<script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./sw.js");
