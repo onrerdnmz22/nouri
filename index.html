@@ -53,7 +53,10 @@ button:focus-visible,input:focus-visible,select:focus-visible {
   display:grid;place-items:center;
   color:white;background:var(--green);font-size:23px;
 }
-.brand-name { font-size:23px;font-weight:800;letter-spacing:-.8px;color:var(--green); }
+.brand-name {
+  font-size:23px;font-weight:800;
+  letter-spacing:-.8px;color:var(--green);
+}
 .brand-tagline { font-size:11px;color:var(--muted);margin-top:2px; }
 .icon-button {
   width:43px;height:43px;border:1px solid var(--line);
@@ -83,16 +86,6 @@ main {
   border:0;background:transparent;color:var(--green-2);
   font-size:13px;font-weight:700;padding:6px 0;
 }
-.card {
-  background:var(--white);border:1px solid var(--line);
-  border-radius:22px;padding:18px;box-shadow:var(--shadow);
-}
-.cupboard-card {
-  width:100%;display:flex;align-items:center;gap:14px;
-  text-align:left;color:var(--text);
-  border:1px solid var(--line);background:white;
-  border-radius:22px;padding:18px;box-shadow:var(--shadow);
-}
 .feature-icon {
   flex:0 0 52px;width:52px;height:52px;border-radius:17px;
   display:grid;place-items:center;background:var(--soft);
@@ -103,27 +96,38 @@ main {
 .card-description { color:var(--muted);font-size:12px;line-height:1.5; }
 .arrow { color:var(--green-2);font-size:23px; }
 .stats {
-  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;margin-top:13px;
 }
 .stat-card {
   border:1px solid var(--line);border-radius:20px;
   background:white;padding:16px;box-shadow:var(--shadow);
 }
-.stat-top { display:flex;justify-content:space-between;align-items:center;gap:6px; }
+.stat-top {
+  display:flex;justify-content:space-between;
+  align-items:center;gap:6px;
+}
 .stat-label { font-size:12px;color:var(--muted);line-height:1.4; }
 .stat-icon {
   width:31px;height:31px;display:grid;place-items:center;
   border-radius:11px;background:var(--soft);font-size:16px;
 }
-.stat-number { font-size:29px;font-weight:800;letter-spacing:-1px;margin-top:12px; }
+.stat-number {
+  font-size:29px;font-weight:800;
+  letter-spacing:-1px;margin-top:12px;
+}
 .stat-foot { font-size:11px;color:var(--muted);margin-top:3px; }
 .add-card {
   width:100%;margin-top:16px;padding:19px;
   display:flex;align-items:center;gap:14px;
   text-align:left;color:white;background:var(--green);
-  border:0;border-radius:22px;box-shadow:0 9px 22px rgba(23,63,50,.15);
+  border:0;border-radius:22px;
+  box-shadow:0 9px 22px rgba(23,63,50,.15);
 }
-.add-card .feature-icon { background:rgba(255,255,255,.14);color:white;font-size:28px; }
+.add-card .feature-icon {
+  background:rgba(255,255,255,.14);
+  color:white;font-size:28px;
+}
 .add-card .card-title { font-size:17px; }
 .add-card .card-description { color:#d5e4da; }
 .add-card .arrow { color:white; }
@@ -138,7 +142,10 @@ main {
   font-size:10px;font-weight:700;
 }
 .page-title { font-size:27px;letter-spacing:-.8px;margin:8px 0 7px; }
-.page-subtitle { color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 20px; }
+.page-subtitle {
+  color:var(--muted);font-size:13px;
+  line-height:1.6;margin:0 0 20px;
+}
 .primary {
   width:100%;border:0;border-radius:14px;padding:14px;
   background:var(--green);color:white;font-weight:750;margin-top:18px;
@@ -161,39 +168,88 @@ input,select {
   border-radius:12px;background:white;color:var(--text);
   font-size:14px;min-height:45px;
 }
-input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
-.form-grid { display:grid;grid-template-columns:1fr 1fr;gap:0 11px; }
-.form-note { color:var(--muted);font-size:12px;line-height:1.5;margin:14px 0 0; }
+input:focus,select:focus {
+  border-color:#7ca58a;outline:2px solid #e0ece2;
+}
+input:disabled {
+  background:#f0f1ed;color:#929b94;cursor:not-allowed;
+}
+.form-grid {
+  display:grid;grid-template-columns:1fr 1fr;gap:0 11px;
+}
+.form-note {
+  color:var(--muted);font-size:12px;
+  line-height:1.5;margin:14px 0 0;
+}
 .search-row { display:flex;gap:9px;margin:16px 0 10px; }
 .search-row input { min-width:0; }
+.filter-grid {
+  display:grid;grid-template-columns:1fr 1fr;gap:0 10px;
+}
+.filter-grid label { margin-top:9px; }
 .food {
   background:white;border:1px solid var(--line);
   border-radius:18px;padding:15px;margin-top:10px;
 }
 .food-top { display:flex;justify-content:space-between;gap:10px; }
-.food-name { font-size:15px;font-weight:750;overflow-wrap:anywhere; }
-.food-info { color:var(--muted);font-size:12px;line-height:1.7;margin-top:5px; }
+.food-name {
+  font-size:15px;font-weight:750;overflow-wrap:anywhere;
+}
+.food-info {
+  color:var(--muted);font-size:12px;line-height:1.7;margin-top:5px;
+}
 .status {
   display:inline-block;margin-top:9px;padding:6px 9px;
-  border-radius:20px;font-size:11px;background:var(--soft);color:var(--green);
+  border-radius:20px;font-size:11px;
+  background:var(--soft);color:var(--green);
 }
 .status.soon { background:var(--yellow);color:#87651c; }
 .status.expired { background:var(--red);color:#a33d32; }
+.status.unknown { background:#f0f1ed;color:#59665d; }
 .actions { display:flex;gap:7px;flex-wrap:wrap;margin-top:13px; }
 .actions button { font-size:12px; }
 .empty {
-  text-align:center;color:var(--muted);padding:25px 10px;
-  font-size:13px;line-height:1.6;
+  text-align:center;color:var(--muted);
+  padding:25px 10px;font-size:13px;line-height:1.6;
 }
 .info-card { margin-top:13px; }
 .info-card h3 { margin:0 0 7px;font-size:15px; }
-.info-card p { margin:0;color:var(--muted);font-size:13px;line-height:1.6; }
+.info-card p {
+  margin:0;color:var(--muted);font-size:13px;line-height:1.6;
+}
 .category-row {
   display:flex;align-items:center;justify-content:space-between;
-  gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px;
+  gap:10px;padding:13px 0;border-bottom:1px solid var(--line);
+  font-size:13px;
 }
 .category-row:last-child { border-bottom:0; }
 .category-count { font-weight:750;color:var(--green); }
+
+/* Son kullanma tarihi bilinmiyor alanı */
+.unknown-date-option {
+  display:flex;align-items:center;gap:10px;
+  margin-top:12px;cursor:pointer;
+  font-size:13px;font-weight:600;line-height:1.5;
+}
+.unknown-date-option input {
+  flex:0 0 18px;width:18px;height:18px;min-height:18px;
+  padding:0;margin:0;accent-color:var(--green);
+}
+.unknown-expiry-info {
+  margin-top:12px;padding:14px;border-radius:14px;
+  background:#f0f6ef;color:#31543b;
+  font-size:13px;line-height:1.6;
+}
+.unknown-expiry-info h3 {
+  margin:0 0 6px;font-size:14px;
+}
+.unknown-expiry-info p { margin:0 0 10px; }
+.unknown-expiry-info .estimate-note {
+  font-size:11px;color:#647968;margin-top:9px;
+}
+.unknown-expiry-info .secondary {
+  background:white;border:1px solid #dce8dd;
+}
 .bottom-nav {
   position:fixed;z-index:10;left:0;right:0;bottom:0;
   background:rgba(255,255,255,.96);
@@ -224,7 +280,7 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
   .welcome h1 { font-size:26px; }
   .stat-card { padding:13px; }
   .nav-item { font-size:9px; }
-  .form-grid { grid-template-columns:1fr; }
+  .form-grid,.filter-grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -239,7 +295,8 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
         <div class="brand-tagline">Eat Smart. Waste Less.</div>
       </div>
     </div>
-    <button class="icon-button" id="notificationsButton" aria-label="Bildirimler" title="Bildirimler">♧</button>
+    <button class="icon-button" id="notificationsButton"
+      aria-label="Bildirimler" title="Bildirimler">♧</button>
   </div>
 </header>
 
@@ -251,14 +308,7 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
       <p>Mutfağını birlikte daha akıllı yönetelim.</p>
     </div>
 
-    <button class="cupboard-card" data-view="cupboardView">
-      <div class="feature-icon">🧺</div>
-      <div class="card-copy">
-        <div class="card-title">Dolabım</div>
-        <div class="card-description">Eklediğin tüm ürünleri görüntüle.</div>
-      </div>
-      <span class="arrow">›</span>
-    </button>
+    <!-- Ana sayfada ayrı Dolabım kartı kaldırıldı. -->
 
     <div class="stats">
       <div class="stat-card">
@@ -283,7 +333,9 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
       <div class="feature-icon">＋</div>
       <div class="card-copy">
         <div class="card-title">Ürün Ekle</div>
-        <div class="card-description">Ürünlerini ve son kullanma tarihlerini kaydet.</div>
+        <div class="card-description">
+          Ürünlerini ve son kullanma tarihlerini kaydet.
+        </div>
       </div>
       <span class="arrow">›</span>
     </button>
@@ -303,26 +355,51 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
   <!-- DOLABIM -->
   <section class="view" id="cupboardView">
     <h1 class="page-title">Dolabım</h1>
-    <p class="page-subtitle">Eklediğin ürünleri ve tarihlerini buradan yönetebilirsin.</p>
-    <button class="primary" id="cupboardAddButton" style="margin-top:0">＋ Yeni ürün ekle</button>
+    <p class="page-subtitle">
+      Eklediğin ürünleri, tarihlerini ve saklama yerlerini buradan yönetebilirsin.
+    </p>
+    <button class="primary" id="cupboardAddButton" style="margin-top:0">
+      ＋ Yeni ürün ekle
+    </button>
 
     <div class="search-row">
-      <input id="search" type="search" placeholder="Ürün ara..." aria-label="Ürün ara">
+      <input id="search" type="search"
+        placeholder="Ürün ara..." aria-label="Ürün ara">
     </div>
-    <label for="filter">Ürünleri filtrele</label>
-    <select id="filter">
-      <option value="all">Tüm ürünler</option>
-      <option value="soon">3 gün içinde tarihi dolacaklar</option>
-      <option value="expired">Tarihi geçmiş ürünler</option>
-      <option value="safe">Tarihi uygun ürünler</option>
-    </select>
+
+    <div class="filter-grid">
+      <div>
+        <label for="filter">Tarih durumuna göre</label>
+        <select id="filter">
+          <option value="all">Tüm ürünler</option>
+          <option value="soon">3 gün içinde tarihi dolacaklar</option>
+          <option value="expired">Tarihi geçmiş ürünler</option>
+          <option value="safe">Tarihi uygun ürünler</option>
+          <option value="unknown">Tarihi bilinmeyenler</option>
+        </select>
+      </div>
+      <div>
+        <label for="locationFilter">Saklama yerine göre</label>
+        <select id="locationFilter">
+          <option value="all">Tüm saklama yerleri</option>
+          <option value="Buzdolabı">Buzdolabı</option>
+          <option value="Dondurucu">Dondurucu</option>
+          <option value="Kiler">Kiler</option>
+          <option value="Tezgâh">Tezgâh</option>
+        </select>
+      </div>
+    </div>
+
     <div id="foodList" class="empty">Henüz ürün eklemedin.</div>
   </section>
 
   <!-- ÜRÜN EKLE / DÜZENLE -->
   <section class="view" id="formView">
     <h1 class="page-title" id="formTitle">Ürün Ekle</h1>
-    <p class="page-subtitle">Ürün bilgilerini ve ambalajındaki tarihi kaydet.</p>
+    <p class="page-subtitle">
+      Ürün bilgilerini ve ambalajındaki tarihi kaydet.
+    </p>
+
     <div class="card">
       <form id="foodForm">
         <label for="name">Ürün adı</label>
@@ -343,7 +420,8 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
           </div>
           <div>
             <label for="quantity">Miktar</label>
-            <input id="quantity" type="number" min="0.01" step="any" value="1" required>
+            <input id="quantity" type="number" min="0.01"
+              step="any" value="1" required>
           </div>
           <div>
             <label for="unit">Birim</label>
@@ -355,8 +433,10 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
           <div>
             <label for="location">Saklama yeri</label>
             <select id="location">
-              <option>Buzdolabı</option><option>Dondurucu</option>
-              <option>Kiler</option><option>Tezgâh</option>
+              <option>Buzdolabı</option>
+              <option>Dondurucu</option>
+              <option>Kiler</option>
+              <option>Tezgâh</option>
             </select>
           </div>
           <div>
@@ -367,26 +447,62 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
             </select>
           </div>
           <div>
-            <label for="expiry">Tarih</label>
+            <label for="expiry">Son kullanma tarihi</label>
             <input id="expiry" type="date" required>
           </div>
         </div>
 
-        <button class="primary" type="submit" id="saveButton">Ürünü kaydet</button>
-        <button class="cancel hidden" type="button" id="cancelEdit" style="width:100%;margin-top:9px">Düzenlemeyi iptal et</button>
+        <label class="unknown-date-option" for="unknownExpiry">
+          <input type="checkbox" id="unknownExpiry">
+          <span>Son kullanma tarihini bilmiyorum</span>
+        </label>
+
+        <div id="unknownExpiryInfo" class="unknown-expiry-info hidden">
+          <h3>ⓘ Tarih konusunda yardım</h3>
+          <p>
+            Ürünün türüne ve saklama koşullarına göre yaklaşık bir
+            hatırlatma tarihi önerebiliriz. Bu tarih kesin bir güvenlik
+            garantisi değildir; ürünün ambalajındaki bilgiler önceliklidir.
+          </p>
+          <div id="estimateResult"></div>
+          <button type="button" class="secondary hidden"
+            id="useEstimateButton">Önerilen tarihi kullan</button>
+          <p class="estimate-note">
+            Öneriler yalnızca genel hatırlatma amaçlıdır. Özellikle
+            bozulabilir gıdalarda ambalaj ve güvenilir saklama talimatları
+            esas alınmalıdır.
+          </p>
+        </div>
+
+        <button class="primary" type="submit" id="saveButton">
+          Ürünü kaydet
+        </button>
+        <button class="cancel hidden" type="button" id="cancelEdit"
+          style="width:100%;margin-top:9px">
+          Düzenlemeyi iptal et
+        </button>
       </form>
-      <p class="form-note">Ürünlerin bu cihazdaki tarayıcıda saklanır. Bu sürüm henüz arka planda bildirim göndermez.</p>
+      <p class="form-note">
+        Ürünlerin bu cihazdaki tarayıcıda saklanır. Bu sürüm henüz
+        arka planda bildirim göndermez.
+      </p>
     </div>
   </section>
 
   <!-- ETİKET OKUT -->
   <section class="view" id="scanView">
     <h1 class="page-title">Etiket Okut</h1>
-    <p class="page-subtitle">Ürün etiketlerindeki bilgileri daha kolay anlamana yardımcı olacak özellikler üzerinde çalışıyoruz.</p>
+    <p class="page-subtitle">
+      Ürün etiketlerindeki bilgileri daha kolay anlamana yardımcı olacak
+      özellikler üzerinde çalışıyoruz.
+    </p>
     <div class="card info-card">
       <div class="feature-icon">▤</div>
       <h3>İçindekiler ve alerjenler</h3>
-      <p>Ambalaj fotoğrafından içerik ve alerjen analizi özelliği henüz kullanıma açık değil. Bu ekran şu anda kamera açmaz ve analiz yapmaz.</p>
+      <p>
+        Ambalaj fotoğrafından içerik ve alerjen analizi özelliği henüz
+        kullanıma açık değil. Bu ekran şu anda kamera açmaz ve analiz yapmaz.
+      </p>
       <span class="coming">Yakında kullanıma açılacak</span>
     </div>
   </section>
@@ -394,7 +510,9 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
   <!-- İSTATİSTİKLER -->
   <section class="view" id="statsView">
     <h1 class="page-title">İstatistikler</h1>
-    <p class="page-subtitle">Mutfağındaki ürünlerin mevcut durumuna göz at.</p>
+    <p class="page-subtitle">
+      Mutfağındaki ürünlerin mevcut durumuna göz at.
+    </p>
     <div class="stats">
       <div class="stat-card">
         <div class="stat-label">Toplam ürün</div>
@@ -411,6 +529,10 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
       <div class="stat-card">
         <div class="stat-label">Tarihi uygun</div>
         <div class="stat-number" id="statsSafe">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Tarihi bilinmeyen</div>
+        <div class="stat-number" id="statsUnknown">0</div>
       </div>
     </div>
     <div class="section-heading"><h2>Kategorilere göre ürünler</h2></div>
@@ -435,24 +557,37 @@ input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
     </div>
     <div class="card info-card">
       <h3>Verilerin hakkında</h3>
-      <p>Eklediğin ürünler bu cihazdaki tarayıcının yerel hafızasında saklanır. Tarayıcı verilerini silmek ürün kayıtlarını da silebilir.</p>
+      <p>
+        Eklediğin ürünler bu cihazdaki tarayıcının yerel hafızasında saklanır.
+        Tarayıcı verilerini silmek ürün kayıtlarını da silebilir.
+      </p>
     </div>
     <div class="card info-card">
       <h3>Bildirimler ve tercihler</h3>
-      <p>Hatırlatıcılar ve kişiselleştirilebilir ayarlar henüz hazır değil. Bu ekranda henüz arka planda çalışan bir bildirim sistemi bulunmuyor.</p>
+      <p>
+        Hatırlatıcılar ve kişiselleştirilebilir ayarlar henüz hazır değil.
+        Bu ekranda henüz arka planda çalışan bir bildirim sistemi bulunmuyor.
+      </p>
     </div>
   </section>
 
-  <!-- BİLDİRİMLER BİLGİSİ -->
+  <!-- BİLDİRİMLER -->
   <section class="view" id="notificationsView">
     <h1 class="page-title">Bildirimler</h1>
-    <p class="page-subtitle">Tarihi yaklaşan ürünlerini ana ekrandaki sayaçlardan takip edebilirsin.</p>
+    <p class="page-subtitle">
+      Tarihi yaklaşan ürünlerini ana ekrandaki sayaçlardan takip edebilirsin.
+    </p>
     <div class="card info-card">
       <h3>Bildirimler henüz etkin değil</h3>
-      <p>Nouri şu anda telefonuna otomatik bildirim göndermez. Bu özellik daha sonra ayrıca eklenecek.</p>
+      <p>
+        Nouri şu anda telefonuna otomatik bildirim göndermez.
+        Bu özellik daha sonra ayrıca eklenecek.
+      </p>
     </div>
     <div class="section-heading"><h2>Tarihi yaklaşan ürünler</h2></div>
-    <div id="notificationList" class="empty">Tarihi yaklaşan ürün bulunmuyor.</div>
+    <div id="notificationList" class="empty">
+      Tarihi yaklaşan ürün bulunmuyor.
+    </div>
   </section>
 </main>
 
@@ -484,38 +619,70 @@ let editingId = null;
 
 try {
   const saved = JSON.parse(localStorage.getItem("nouriFoods") || "[]");
-  foods = Array.isArray(saved) ? saved.map(f => ({
-    ...f,
-    location: f.location || f.storageLocation || "Buzdolabı",
-    expiry: f.expiry || f.expiryDate || "",
-    dateType: f.dateType || "STT",
-    quantity: f.quantity ?? 1,
-    unit: f.unit || "adet",
-    category: f.category || "Diğer"
-  })) : [];
+
+  foods = Array.isArray(saved) ? saved.map(f => {
+    const expiry = f.expiry || f.expiryDate || "";
+    return {
+      ...f,
+      id: f.id || Date.now().toString() + Math.random().toString(16).slice(2),
+      location: f.location || f.storageLocation || "Buzdolabı",
+      expiry,
+      dateType: f.dateType || "STT",
+      quantity: f.quantity ?? 1,
+      unit: f.unit || "adet",
+      category: f.category || "Diğer",
+      // Eski kayıtlarda tarih yoksa bilinmeyen tarih olarak ele al.
+      dateUnknown: Boolean(f.dateUnknown || !expiry)
+    };
+  }) : [];
 } catch {
   foods = [];
 }
 
 function persist() {
-  localStorage.setItem("nouriFoods", JSON.stringify(foods));
+  try {
+    localStorage.setItem("nouriFoods", JSON.stringify(foods));
+  } catch (error) {
+    console.error("Ürünler kaydedilemedi:", error);
+    alert("Kayıt yapılamadı. Cihazında yeterli depolama alanı olmayabilir.");
+  }
+}
+
+function isDateUnknown(food) {
+  return Boolean(food.dateUnknown || !food.expiry);
 }
 
 function daysLeft(dateText) {
   if (!dateText) return null;
+
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+
   const date = new Date(dateText + "T00:00:00");
   if (Number.isNaN(date.getTime())) return null;
+
   return Math.round((date - today) / 86400000);
 }
 
 function statusFor(food) {
+  if (isDateUnknown(food)) {
+    return { kind:"unknown", text:"Son kullanma tarihi bilinmiyor" };
+  }
+
   const days = daysLeft(food.expiry);
-  if (days === null) return { kind:"soon", text:"Tarih kontrol edilmeli" };
-  if (days < 0) return { kind:"expired", text:"Tarihi geçmiş" };
-  if (days === 0) return { kind:"soon", text:"Tarihi bugün doluyor" };
-  if (days <= 3) return { kind:"soon", text:days + " gün kaldı" };
+
+  if (days === null) {
+    return { kind:"unknown", text:"Tarih kontrol edilmeli" };
+  }
+  if (days < 0) {
+    return { kind:"expired", text:"Tarihi geçmiş" };
+  }
+  if (days === 0) {
+    return { kind:"soon", text:"Tarihi bugün doluyor" };
+  }
+  if (days <= 3) {
+    return { kind:"soon", text:days + " gün kaldı" };
+  }
   return { kind:"safe", text:"Tarihi uygun" };
 }
 
@@ -523,13 +690,19 @@ function changeView(viewId) {
   document.querySelectorAll(".view").forEach(view => {
     view.classList.toggle("active", view.id === viewId);
   });
+
   document.querySelectorAll(".nav-item").forEach(button => {
     button.classList.toggle("active", button.dataset.view === viewId);
   });
+
   if (viewId === "notificationsView") {
-    document.querySelectorAll(".nav-item").forEach(button => button.classList.remove("active"));
+    document.querySelectorAll(".nav-item").forEach(button => {
+      button.classList.remove("active");
+    });
   }
+
   window.scrollTo({ top:0, behavior:"smooth" });
+
   if (viewId === "cupboardView") renderFoods();
   if (viewId === "statsView") renderStats();
   if (viewId === "notificationsView") renderNotifications();
@@ -545,23 +718,34 @@ function openAddForm() {
   $("formTitle").textContent = "Ürün Ekle";
   $("name").focus({ preventScroll:true });
 }
+
 $("homeAddButton").addEventListener("click", openAddForm);
 $("cupboardAddButton").addEventListener("click", openAddForm);
-$("notificationsButton").addEventListener("click", () => changeView("notificationsView"));
+$("notificationsButton").addEventListener("click", () => {
+  changeView("notificationsView");
+});
 
+/* İstatistikler */
 function renderStats() {
   const soonCount = foods.filter(f => {
+    if (isDateUnknown(f)) return false;
     const d = daysLeft(f.expiry);
     return d !== null && d >= 0 && d <= 3;
   }).length;
+
   const expiredCount = foods.filter(f => {
+    if (isDateUnknown(f)) return false;
     const d = daysLeft(f.expiry);
     return d !== null && d < 0;
   }).length;
+
   const safeCount = foods.filter(f => {
+    if (isDateUnknown(f)) return false;
     const d = daysLeft(f.expiry);
     return d !== null && d > 3;
   }).length;
+
+  const unknownCount = foods.filter(isDateUnknown).length;
 
   $("total").textContent = foods.length;
   $("soon").textContent = soonCount;
@@ -569,49 +753,67 @@ function renderStats() {
   $("statsSoon").textContent = soonCount;
   $("statsExpired").textContent = expiredCount;
   $("statsSafe").textContent = safeCount;
+  $("statsUnknown").textContent = unknownCount;
 
   const counts = {};
   foods.forEach(food => {
     const category = food.category || "Diğer";
     counts[category] = (counts[category] || 0) + 1;
   });
+
   const container = $("categoryStats");
   container.replaceChildren();
 
   const categories = Object.entries(counts).sort((a,b) => b[1] - a[1]);
+
   if (!categories.length) {
     container.className = "empty";
     container.textContent = "İstatistik oluşturmak için önce ürün ekle.";
     return;
   }
+
   container.className = "card";
+
   categories.forEach(([name, count]) => {
     const row = document.createElement("div");
     row.className = "category-row";
+
     const label = document.createElement("span");
     label.textContent = name;
+
     const value = document.createElement("span");
     value.className = "category-count";
-    value.textContent = count + (count === 1 ? " ürün" : " ürün");
+    value.textContent = count + " ürün";
+
     row.append(label, value);
     container.append(row);
   });
 }
 
+/* Dolabım: arama, tarih filtresi ve saklama yeri filtresi */
 function renderFoods() {
   const query = $("search").value.trim().toLocaleLowerCase("tr");
   const filter = $("filter").value;
+  const locationFilter = $("locationFilter").value;
 
   const shown = [...foods]
     .filter(f => (f.name || "").toLocaleLowerCase("tr").includes(query))
+    .filter(f => locationFilter === "all" || f.location === locationFilter)
     .filter(f => {
-      const d = daysLeft(f.expiry);
-      if (filter === "soon") return d !== null && d >= 0 && d <= 3;
-      if (filter === "expired") return d !== null && d < 0;
-      if (filter === "safe") return d !== null && d > 3;
+      const unknown = isDateUnknown(f);
+      const d = unknown ? null : daysLeft(f.expiry);
+
+      if (filter === "unknown") return unknown;
+      if (filter === "soon") return !unknown && d !== null && d >= 0 && d <= 3;
+      if (filter === "expired") return !unknown && d !== null && d < 0;
+      if (filter === "safe") return !unknown && d !== null && d > 3;
       return true;
     })
-    .sort((a,b) => (a.expiry || "").localeCompare(b.expiry || ""));
+    .sort((a,b) => {
+      if (isDateUnknown(a) && !isDateUnknown(b)) return 1;
+      if (!isDateUnknown(a) && isDateUnknown(b)) return -1;
+      return (a.expiry || "").localeCompare(b.expiry || "");
+    });
 
   const list = $("foodList");
   list.replaceChildren();
@@ -619,18 +821,20 @@ function renderFoods() {
   if (!shown.length) {
     list.className = "empty";
     list.textContent = foods.length
-      ? "Bu aramayla eşleşen ürün yok."
+      ? "Bu arama veya filtrelerle eşleşen ürün yok."
       : "Henüz ürün eklemedin. İlk ürününü ekleyerek başlayabilirsin.";
     return;
   }
 
   list.className = "";
+
   shown.forEach(food => {
     const card = document.createElement("article");
     card.className = "food";
 
     const top = document.createElement("div");
     top.className = "food-top";
+
     const details = document.createElement("div");
     const name = document.createElement("div");
     name.className = "food-name";
@@ -638,16 +842,18 @@ function renderFoods() {
 
     const info = document.createElement("div");
     info.className = "food-info";
-    info.textContent = `${food.quantity} ${food.unit} · ${food.category} · ${food.location}`;
+    info.textContent =
+      `${food.quantity} ${food.unit} · ${food.category} · ${food.location}`;
 
     const date = document.createElement("div");
     date.className = "food-info";
-    date.textContent = `${food.dateType || "STT"}: ${food.expiry || "Tarih girilmemiş"}`;
+    date.textContent = isDateUnknown(food)
+      ? "Son kullanma tarihi: Bilinmiyor"
+      : `${food.dateType || "STT"}: ${food.expiry}`;
 
     const status = statusFor(food);
     const badge = document.createElement("span");
-    badge.className = "status" +
-      (status.kind === "soon" ? " soon" : status.kind === "expired" ? " expired" : "");
+    badge.className = "status " + status.kind;
     badge.textContent = status.text;
 
     details.append(name, info, date, badge);
@@ -667,8 +873,10 @@ function renderFoods() {
     del.textContent = "Sil";
     del.addEventListener("click", () => {
       if (!confirm(`"${food.name}" ürününü silmek istiyor musun?`)) return;
+
       foods = foods.filter(f => f.id !== food.id);
       if (editingId === food.id) resetForm();
+
       persist();
       renderAll();
     });
@@ -679,10 +887,13 @@ function renderFoods() {
   });
 }
 
+/* Bildirim ekranı: otomatik bildirim göndermez, yaklaşan tarihleri listeler. */
 function renderNotifications() {
   const list = $("notificationList");
   list.replaceChildren();
+
   const upcoming = foods.filter(f => {
+    if (isDateUnknown(f)) return false;
     const d = daysLeft(f.expiry);
     return d !== null && d >= 0 && d <= 3;
   }).sort((a,b) => (a.expiry || "").localeCompare(b.expiry || ""));
@@ -694,15 +905,19 @@ function renderNotifications() {
   }
 
   list.className = "";
+
   upcoming.forEach(food => {
     const card = document.createElement("div");
     card.className = "food";
+
     const name = document.createElement("div");
     name.className = "food-name";
     name.textContent = food.name;
+
     const info = document.createElement("div");
     info.className = "food-info";
     info.textContent = `${food.expiry} · ${statusFor(food).text}`;
+
     card.append(name, info);
     list.append(card);
   });
@@ -714,10 +929,13 @@ function renderAll() {
   renderNotifications();
 }
 
+/* Ürün düzenleme */
 function startEdit(id) {
   const food = foods.find(f => f.id === id);
   if (!food) return;
+
   editingId = id;
+
   $("name").value = food.name || "";
   $("category").value = food.category || "Diğer";
   $("quantity").value = food.quantity ?? 1;
@@ -725,36 +943,153 @@ function startEdit(id) {
   $("location").value = food.location || "Buzdolabı";
   $("dateType").value = food.dateType || "STT";
   $("expiry").value = food.expiry || "";
+  $("unknownExpiry").checked = isDateUnknown(food);
+
+  updateUnknownDateUI();
+
   $("formTitle").textContent = "Ürünü düzenle";
   $("saveButton").textContent = "Değişiklikleri kaydet";
   $("cancelEdit").classList.remove("hidden");
+
   changeView("formView");
 }
 
+/* Formu sıfırlama */
 function resetForm() {
   editingId = null;
   form.reset();
+
   $("quantity").value = 1;
+  $("expiry").disabled = false;
+  $("expiry").required = true;
+  $("unknownExpiryInfo").classList.add("hidden");
+  $("estimateResult").textContent = "";
+  $("useEstimateButton").classList.add("hidden");
+
   $("formTitle").textContent = "Ürün Ekle";
   $("saveButton").textContent = "Ürünü kaydet";
   $("cancelEdit").classList.add("hidden");
 }
 
+/*
+  Tarihi bilinmeyen ürün için sınırlı hatırlatma önerileri.
+  Bu hesaplamalar genel saklama rehberlerine dayalı yaklaşık
+  sürelerdir; ürünün güvenli olduğunu göstermez.
+*/
+function getEstimate() {
+  const name = $("name").value.trim().toLocaleLowerCase("tr");
+  const category = $("category").value;
+  const location = $("location").value;
+
+  if (location !== "Buzdolabı") {
+    return {
+      date:null,
+      message:"Bu saklama yeri için güvenilir bir tarih önerisi veremiyorum. Ürünün ambalajını ve saklama talimatlarını kontrol et."
+    };
+  }
+
+  const rawMeatOrFish =
+    /tavuk|hindi|çiğ et|kıyma|balık|somon|mezgit|levrek|çipura|karides/.test(name);
+
+  const cookedFood =
+    /pişmiş|yemek|çorba|pilav|makarna|güveç|artık yemek/.test(name);
+
+  let days = null;
+  let reason = "";
+
+  if (rawMeatOrFish || category === "Et ve balık") {
+    days = 2;
+    reason = "Çiğ et ve balık gibi bozulabilir ürünler için genel, kısa süreli buzdolabı hatırlatması.";
+  } else if (cookedFood) {
+    days = 3;
+    reason = "Pişmiş yemek artıkları için genel, kısa süreli buzdolabı hatırlatması.";
+  }
+
+  if (days === null) {
+    return {
+      date:null,
+      message:"Bu ürün için türünü ve durumunu bilmeden tarih tahmin etmek doğru olmaz. Ambalajdaki STT/TETT bilgisini veya üreticinin saklama talimatlarını kontrol et."
+    };
+  }
+
+  const date = new Date();
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() + days);
+
+  const isoDate =
+    `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
+  return {
+    date:isoDate,
+    message:`Yaklaşık hatırlatma: ${days} gün sonrası. ${reason}`
+  };
+}
+
+function updateUnknownDateUI() {
+  const unknown = $("unknownExpiry").checked;
+
+  $("expiry").disabled = unknown;
+  $("expiry").required = !unknown;
+
+  $("unknownExpiryInfo").classList.toggle("hidden", !unknown);
+
+  if (unknown) {
+    refreshEstimate();
+  } else {
+    $("estimateResult").textContent = "";
+    $("useEstimateButton").classList.add("hidden");
+  }
+}
+
+function refreshEstimate() {
+  if (!$("unknownExpiry").checked) return;
+
+  const estimate = getEstimate();
+  $("estimateResult").textContent = estimate.message;
+  $("useEstimateButton").classList.toggle("hidden", !estimate.date);
+  $("useEstimateButton").dataset.date = estimate.date || "";
+}
+
+$("unknownExpiry").addEventListener("change", updateUnknownDateUI);
+
+$("useEstimateButton").addEventListener("click", () => {
+  const proposedDate = $("useEstimateButton").dataset.date;
+  if (!proposedDate) return;
+
+  $("expiry").value = proposedDate;
+  $("unknownExpiry").checked = false;
+  updateUnknownDateUI();
+});
+
+/* Öneri, ürün adı veya saklama yeri değiştiğinde güncellenir. */
+$("name").addEventListener("input", refreshEstimate);
+$("category").addEventListener("change", refreshEstimate);
+$("location").addEventListener("change", refreshEstimate);
+
+/* Ürün kaydetme */
 form.addEventListener("submit", event => {
   event.preventDefault();
+
+  const dateUnknown = $("unknownExpiry").checked;
+
   const food = {
-    id: editingId || Date.now().toString(),
-    name: $("name").value.trim(),
-    category: $("category").value,
-    quantity: Number($("quantity").value),
-    unit: $("unit").value,
-    location: $("location").value,
-    dateType: $("dateType").value,
-    expiry: $("expiry").value
+    id:editingId || Date.now().toString(),
+    name:$("name").value.trim(),
+    category:$("category").value,
+    quantity:Number($("quantity").value),
+    unit:$("unit").value,
+    location:$("location").value,
+    dateType:$("dateType").value,
+    expiry:dateUnknown ? "" : $("expiry").value,
+    dateUnknown
   };
 
-  if (!food.name || !food.expiry ||
-      !Number.isFinite(food.quantity) || food.quantity <= 0) {
+  if (
+    !food.name ||
+    (!dateUnknown && !food.expiry) ||
+    !Number.isFinite(food.quantity) ||
+    food.quantity <= 0
+  ) {
     alert("Lütfen ürün bilgilerini kontrol et.");
     return;
   }
@@ -775,8 +1110,10 @@ $("cancelEdit").addEventListener("click", () => {
   resetForm();
   changeView("cupboardView");
 });
+
 $("search").addEventListener("input", renderFoods);
 $("filter").addEventListener("change", renderFoods);
+$("locationFilter").addEventListener("change", renderFoods);
 
 renderAll();
 
