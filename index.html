@@ -67,6 +67,8 @@ footer { text-align:center; padding:20px; font-size:12px; color:#849087; }
   h1 { font-size:24px; }
 }
 </style>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#386641">
 </head>
 <body>
 <header>
@@ -350,6 +352,12 @@ $("cancelEdit").addEventListener("click", resetForm);
 $("search").addEventListener("input", render);
 $("filter").addEventListener("change", render);
 render();
+</script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
+}
 </script>
 </body>
 </html>
