@@ -168,14 +168,45 @@ input,select {
   border-radius:12px;background:white;color:var(--text);
   font-size:14px;min-height:45px;
 }
+
+input,
+select {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 10px;
+}
+
+.form-grid > div {
+  min-width: 0;
+}
+
+input[type="date"] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding: 10px 6px;
+  font-size: 13px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@media (max-width: 390px) {
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 input:focus,select:focus {
   border-color:#7ca58a;outline:2px solid #e0ece2;
 }
 input:disabled {
   background:#f0f1ed;color:#929b94;cursor:not-allowed;
-}
-.form-grid {
-  display:grid;grid-template-columns:1fr 1fr;gap:0 11px;
 }
 .form-note {
   color:var(--muted);font-size:12px;
@@ -187,27 +218,60 @@ input:disabled {
   display:grid;grid-template-columns:1fr 1fr;gap:0 10px;
 }
 .filter-grid label { margin-top:9px; }
+
 .food {
-  background:white;border:1px solid var(--line);
-  border-radius:18px;padding:15px;margin-top:10px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-top: 8px;
 }
-.food-top { display:flex;justify-content:space-between;gap:10px; }
+
+.food-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .food-name {
-  font-size:15px;font-weight:750;overflow-wrap:anywhere;
+  font-size: 14px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
 }
+
 .food-info {
-  color:var(--muted);font-size:12px;line-height:1.7;margin-top:5px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  margin-top: 3px;
+  overflow-wrap: anywhere;
 }
+
 .status {
-  display:inline-block;margin-top:9px;padding:6px 9px;
-  border-radius:20px;font-size:11px;
-  background:var(--soft);color:var(--green);
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 7px;
+  border-radius: 20px;
+  font-size: 10px;
+  background: var(--soft);
+  color: var(--green);
 }
 .status.soon { background:var(--yellow);color:#87651c; }
 .status.expired { background:var(--red);color:#a33d32; }
 .status.unknown { background:#f0f1ed;color:#59665d; }
-.actions { display:flex;gap:7px;flex-wrap:wrap;margin-top:13px; }
-.actions button { font-size:12px; }
+
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 9px;
+}
+
+.actions button {
+  font-size: 11px;
+  padding: 7px 10px;
+}
+
 .empty {
   text-align:center;color:var(--muted);
   padding:25px 10px;font-size:13px;line-height:1.6;
@@ -282,6 +346,25 @@ input:disabled {
   .nav-item { font-size:9px; }
   .form-grid,.filter-grid { grid-template-columns:1fr; }
 }
+
+.expiry-safety-note {
+  margin-top: 9px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  background: #fff8e8;
+  border: 1px solid #eee2bf;
+  color: #66552a;
+  font-size: 11px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.expiry-safety-note strong {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #59491f;
+}
 </style>
 </head>
 
@@ -340,8 +423,7 @@ input:disabled {
       <span class="arrow">›</span>
     </button>
 
-    <div class="section-heading"><h2>Akıllı mutfak</h2></div>
-    <button class="scan-card" data-view="scanView">
+    <button class="scan-card" data-view="scanView" style="margin-top:16px">
       <div class="feature-icon">▤</div>
       <div class="card-copy">
         <div class="card-title">Etiket Okut</div>
@@ -447,8 +529,13 @@ input:disabled {
             </select>
           </div>
           <div>
-            <label for="expiry">Son kullanma tarihi</label>
-            <input id="expiry" type="date" required>
+        <label for="expiry">Son kullanma tarihi</label>
+        <input id="expiry" type="date" required>
+
+        <div class="expiry-safety-note">
+          <strong>⚠️ Tüketmeden önce kontrol et</strong>
+          Bu alan, ambalajdaki Son Tüketim Tarihi (STT) veya Tavsiye Edilen Tüketim Tarihi (TETT) bilgisini kaydetmek içindir. Ürünü ambalajındaki saklama talimatlarına göre muhafaza et. Tüketmeden önce ambalajını ve ürünün rengini, kokusunu ve yapısını kontrol et. Şüpheli veya bozulma belirtisi olan ürünü tüketme. Normal görünmesi ya da kokması, ürünün güvenli olduğunu tek başına garanti etmez.
+        </div>
           </div>
         </div>
 
