@@ -1,161 +1,313 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#236b4a">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#173f32">
+<meta name="description" content="Mutfağını akıllıca yönet, gıda israfını azalt.">
+<link rel="manifest" href="./manifest.json">
 <title>Nouri | Eat Smart. Waste Less.</title>
+
 <style>
 :root {
-  --green:#236b4a; --light:#f3f7f2; --text:#20352a;
-  --muted:#718074; --border:#e1e9df;
+  --green:#173f32;
+  --green-2:#285b47;
+  --cream:#f7f6ef;
+  --white:#ffffff;
+  --text:#20352b;
+  --muted:#78877e;
+  --line:#e6eae3;
+  --soft:#edf3ed;
+  --yellow:#f5edcf;
+  --red:#fae9e5;
+  --shadow:0 8px 24px rgba(25,58,43,.06);
 }
 * { box-sizing:border-box; }
 body {
-  margin:0; font-family:Arial,sans-serif; background:var(--light);
+  margin:0;
+  background:var(--cream);
   color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
-header { background:white; border-bottom:1px solid var(--border); padding:18px 16px; }
-.wrap { max-width:780px; margin:auto; }
-.logo { font-size:25px; font-weight:bold; color:var(--green); }
-.tagline { color:var(--muted); font-size:13px; margin-top:4px; }
-main { max-width:780px; margin:auto; padding:22px 15px 40px; }
-h1 { font-size:27px; margin:0 0 7px; }
-h2 { font-size:18px; margin:0 0 15px; }
-.subtitle { color:var(--muted); margin:0 0 20px; line-height:1.5; }
-.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:18px; }
-.stat,.panel,.food { background:white; border:1px solid var(--border); border-radius:15px; }
-.stat { padding:14px; }
-.stat-label { color:var(--muted); font-size:12px; }
-.stat-number { font-size:25px; font-weight:bold; margin-top:8px; }
-.panel { padding:18px; margin-bottom:17px; }
-label { display:block; font-size:13px; margin:12px 0 6px; }
+button,input,select { font:inherit; }
+button { cursor:pointer; }
+button:focus-visible,input:focus-visible,select:focus-visible {
+  outline:3px solid #a6c9b0;
+  outline-offset:2px;
+}
+.app-header {
+  background:var(--cream);
+  padding:19px 20px 12px;
+}
+.header-inner {
+  max-width:600px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand { display:flex; align-items:center; gap:10px; }
+.brand-mark {
+  width:43px;height:43px;border-radius:15px;
+  display:grid;place-items:center;
+  color:white;background:var(--green);font-size:23px;
+}
+.brand-name { font-size:23px;font-weight:800;letter-spacing:-.8px;color:var(--green); }
+.brand-tagline { font-size:11px;color:var(--muted);margin-top:2px; }
+.icon-button {
+  width:43px;height:43px;border:1px solid var(--line);
+  border-radius:15px;background:white;color:var(--green);
+  font-size:19px;display:grid;place-items:center;
+}
+main {
+  max-width:600px;margin:auto;
+  padding:15px 18px 112px;
+}
+.view { display:none; }
+.view.active { display:block; }
+.welcome { margin:8px 0 22px; }
+.welcome h1 {
+  font-size:29px;letter-spacing:-1px;
+  margin:0 0 7px;font-weight:800;
+}
+.welcome p {
+  margin:0;color:var(--muted);font-size:14px;line-height:1.55;
+}
+.section-heading {
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;margin:24px 0 12px;
+}
+.section-heading h2 { margin:0;font-size:17px;letter-spacing:-.3px; }
+.text-button {
+  border:0;background:transparent;color:var(--green-2);
+  font-size:13px;font-weight:700;padding:6px 0;
+}
+.card {
+  background:var(--white);border:1px solid var(--line);
+  border-radius:22px;padding:18px;box-shadow:var(--shadow);
+}
+.cupboard-card {
+  width:100%;display:flex;align-items:center;gap:14px;
+  text-align:left;color:var(--text);
+  border:1px solid var(--line);background:white;
+  border-radius:22px;padding:18px;box-shadow:var(--shadow);
+}
+.feature-icon {
+  flex:0 0 52px;width:52px;height:52px;border-radius:17px;
+  display:grid;place-items:center;background:var(--soft);
+  font-size:25px;
+}
+.card-copy { flex:1;min-width:0; }
+.card-title { font-size:16px;font-weight:750;margin-bottom:5px; }
+.card-description { color:var(--muted);font-size:12px;line-height:1.5; }
+.arrow { color:var(--green-2);font-size:23px; }
+.stats {
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px;
+}
+.stat-card {
+  border:1px solid var(--line);border-radius:20px;
+  background:white;padding:16px;box-shadow:var(--shadow);
+}
+.stat-top { display:flex;justify-content:space-between;align-items:center;gap:6px; }
+.stat-label { font-size:12px;color:var(--muted);line-height:1.4; }
+.stat-icon {
+  width:31px;height:31px;display:grid;place-items:center;
+  border-radius:11px;background:var(--soft);font-size:16px;
+}
+.stat-number { font-size:29px;font-weight:800;letter-spacing:-1px;margin-top:12px; }
+.stat-foot { font-size:11px;color:var(--muted);margin-top:3px; }
+.add-card {
+  width:100%;margin-top:16px;padding:19px;
+  display:flex;align-items:center;gap:14px;
+  text-align:left;color:white;background:var(--green);
+  border:0;border-radius:22px;box-shadow:0 9px 22px rgba(23,63,50,.15);
+}
+.add-card .feature-icon { background:rgba(255,255,255,.14);color:white;font-size:28px; }
+.add-card .card-title { font-size:17px; }
+.add-card .card-description { color:#d5e4da; }
+.add-card .arrow { color:white; }
+.scan-card {
+  width:100%;display:flex;align-items:center;gap:14px;
+  text-align:left;background:white;color:var(--text);
+  border:1px solid var(--line);border-radius:22px;padding:17px;
+}
+.coming {
+  display:inline-block;margin-top:8px;padding:5px 9px;
+  border-radius:20px;background:#f0f1ed;color:#6f7a70;
+  font-size:10px;font-weight:700;
+}
+.page-title { font-size:27px;letter-spacing:-.8px;margin:8px 0 7px; }
+.page-subtitle { color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 20px; }
+.primary {
+  width:100%;border:0;border-radius:14px;padding:14px;
+  background:var(--green);color:white;font-weight:750;margin-top:18px;
+}
+.secondary {
+  border:0;border-radius:11px;padding:10px 12px;
+  background:var(--soft);color:var(--green);font-weight:650;
+}
+.cancel {
+  border:0;border-radius:11px;padding:10px 12px;
+  background:#f0f1ed;color:#46564b;
+}
+.delete {
+  border:0;border-radius:11px;padding:10px 12px;
+  background:var(--red);color:#a33d32;font-weight:650;
+}
+label { display:block;font-size:13px;font-weight:650;margin:13px 0 7px; }
 input,select {
-  width:100%; padding:12px; border:1px solid #d4dfd3;
-  border-radius:9px; font-size:15px; background:white; color:var(--text);
+  width:100%;padding:13px;border:1px solid #dce4da;
+  border-radius:12px;background:white;color:var(--text);
+  font-size:14px;min-height:45px;
 }
-input:focus,select:focus { outline:2px solid #b7d8c3; border-color:var(--green); }
-.grid { display:grid; grid-template-columns:1fr 1fr; gap:0 12px; }
-button { cursor:pointer; border:0; border-radius:9px; padding:11px 13px; font-size:14px; }
-.primary { background:var(--green); color:white; width:100%; margin-top:18px; font-weight:bold; }
-.secondary { background:#e7f0e8; color:var(--green); }
-.cancel { background:#edf0ed; color:#425348; }
-.delete { background:#fbe9e7; color:#a5352b; }
-.searchrow { display:flex; gap:8px; margin-bottom:12px; }
-.searchrow input { min-width:0; }
-.food { padding:15px; margin-top:10px; }
-.foodtop { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
-.foodname { font-weight:bold; font-size:16px; overflow-wrap:anywhere; }
-.foodinfo { color:var(--muted); font-size:13px; line-height:1.65; margin-top:6px; }
-.status { display:inline-block; margin-top:9px; padding:6px 9px; border-radius:20px; font-size:12px; background:#e3f3e6; color:#236b4a; }
-.status.soon { background:#fff0d4; color:#93600b; }
-.status.expired { background:#fde6e3; color:#a5352b; }
-.actions { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
+input:focus,select:focus { border-color:#7ca58a;outline:2px solid #e0ece2; }
+.form-grid { display:grid;grid-template-columns:1fr 1fr;gap:0 11px; }
+.form-note { color:var(--muted);font-size:12px;line-height:1.5;margin:14px 0 0; }
+.search-row { display:flex;gap:9px;margin:16px 0 10px; }
+.search-row input { min-width:0; }
+.food {
+  background:white;border:1px solid var(--line);
+  border-radius:18px;padding:15px;margin-top:10px;
+}
+.food-top { display:flex;justify-content:space-between;gap:10px; }
+.food-name { font-size:15px;font-weight:750;overflow-wrap:anywhere; }
+.food-info { color:var(--muted);font-size:12px;line-height:1.7;margin-top:5px; }
+.status {
+  display:inline-block;margin-top:9px;padding:6px 9px;
+  border-radius:20px;font-size:11px;background:var(--soft);color:var(--green);
+}
+.status.soon { background:var(--yellow);color:#87651c; }
+.status.expired { background:var(--red);color:#a33d32; }
+.actions { display:flex;gap:7px;flex-wrap:wrap;margin-top:13px; }
 .actions button { font-size:12px; }
-.empty { text-align:center; color:var(--muted); padding:20px 5px; }
-.hidden { display:none; }
-.note { font-size:12px; line-height:1.5; color:var(--muted); margin-top:12px; }
-footer { text-align:center; padding:20px; font-size:12px; color:#849087; }
-@media(max-width:480px) {
-  .stats { gap:7px; }
-  .stat { padding:11px 9px; }
-  .stat-label { font-size:11px; }
-  .stat-number { font-size:22px; }
-  .grid { grid-template-columns:1fr; }
-  .panel { padding:15px; }
-  h1 { font-size:24px; }
+.empty {
+  text-align:center;color:var(--muted);padding:25px 10px;
+  font-size:13px;line-height:1.6;
+}
+.info-card { margin-top:13px; }
+.info-card h3 { margin:0 0 7px;font-size:15px; }
+.info-card p { margin:0;color:var(--muted);font-size:13px;line-height:1.6; }
+.category-row {
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px;
+}
+.category-row:last-child { border-bottom:0; }
+.category-count { font-weight:750;color:var(--green); }
+.bottom-nav {
+  position:fixed;z-index:10;left:0;right:0;bottom:0;
+  background:rgba(255,255,255,.96);
+  border-top:1px solid var(--line);
+  padding:9px 8px calc(9px + env(safe-area-inset-bottom));
+  display:flex;justify-content:center;
+  backdrop-filter:blur(14px);
+}
+.nav-inner {
+  width:100%;max-width:600px;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:2px;
+}
+.nav-item {
+  border:0;background:transparent;color:#8a958d;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;min-height:51px;padding:4px 1px;
+  font-size:10px;font-weight:650;border-radius:12px;
+}
+.nav-icon { font-size:20px;line-height:1.1; }
+.nav-item.active { color:var(--green);background:#edf3ed; }
+.hidden { display:none !important; }
+@media(min-width:520px) {
+  main { padding-left:22px;padding-right:22px; }
+  .app-header { padding-left:22px;padding-right:22px; }
+}
+@media(max-width:360px) {
+  main { padding-left:13px;padding-right:13px; }
+  .welcome h1 { font-size:26px; }
+  .stat-card { padding:13px; }
+  .nav-item { font-size:9px; }
+  .form-grid { grid-template-columns:1fr; }
 }
 </style>
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#386641">
 </head>
+
 <body>
-<header>
-  <div class="wrap">
-    <div class="logo">🌿 Nouri</div>
-    <div class="tagline">Eat Smart. Waste Less.</div>
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">🌿</div>
+      <div>
+        <div class="brand-name">Nouri</div>
+        <div class="brand-tagline">Eat Smart. Waste Less.</div>
+      </div>
+    </div>
+    <button class="icon-button" id="notificationsButton" aria-label="Bildirimler" title="Bildirimler">♧</button>
   </div>
 </header>
 
 <main>
-  <h1>Mutfağım</h1>
-  <p class="subtitle">Gıdalarını takip et, tarihleri kontrol et ve israfı azalt.</p>
-
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-label">Toplam ürün</div>
-      <div class="stat-number" id="total">0</div>
+  <!-- ANA SAYFA -->
+  <section class="view active" id="homeView">
+    <div class="welcome">
+      <h1>Merhaba! 👋</h1>
+      <p>Mutfağını birlikte daha akıllı yönetelim.</p>
     </div>
-    <div class="stat">
-      <div class="stat-label">3 gün içinde</div>
-      <div class="stat-number" id="soon">0</div>
-    </div>
-    <div class="stat">
-      <div class="stat-label">Tarihi geçmiş</div>
-      <div class="stat-number" id="expired">0</div>
-    </div>
-  </div>
 
-  <section class="panel" id="formPanel">
-    <h2 id="formTitle">＋ Yeni ürün ekle</h2>
-    <form id="foodForm">
-      <label for="name">Ürün adı</label>
-      <input id="name" placeholder="Örn. Süt" required>
-
-      <div class="grid">
-        <div>
-          <label for="category">Kategori</label>
-          <select id="category">
-            <option>Süt ürünleri</option>
-            <option>Meyve ve sebze</option>
-            <option>Et ve balık</option>
-            <option>Bakliyat ve tahıl</option>
-            <option>İçecekler</option>
-            <option>Hazır gıdalar</option>
-            <option>Diğer</option>
-          </select>
-        </div>
-        <div>
-          <label for="quantity">Miktar</label>
-          <input id="quantity" type="number" min="0.01" step="any" value="1" required>
-        </div>
-        <div>
-          <label for="unit">Birim</label>
-          <select id="unit">
-            <option>adet</option><option>kg</option><option>g</option>
-            <option>L</option><option>mL</option><option>paket</option>
-          </select>
-        </div>
-        <div>
-          <label for="location">Saklama yeri</label>
-          <select id="location">
-            <option>Buzdolabı</option><option>Dondurucu</option>
-            <option>Kiler</option><option>Tezgâh</option>
-          </select>
-        </div>
-        <div>
-          <label for="dateType">Tarih türü</label>
-          <select id="dateType">
-            <option value="STT">Son Tüketim Tarihi (STT)</option>
-            <option value="TETT">Tavsiye Edilen Tüketim Tarihi (TETT)</option>
-          </select>
-        </div>
-        <div>
-          <label for="expiry">Tarih</label>
-          <input id="expiry" type="date" required>
-        </div>
+    <button class="cupboard-card" data-view="cupboardView">
+      <div class="feature-icon">🧺</div>
+      <div class="card-copy">
+        <div class="card-title">Dolabım</div>
+        <div class="card-description">Eklediğin tüm ürünleri görüntüle.</div>
       </div>
-      <button class="primary" type="submit" id="saveButton">Ürünü kaydet</button>
-      <button class="cancel hidden" type="button" id="cancelEdit" style="width:100%;margin-top:8px">Düzenlemeyi iptal et</button>
-    </form>
-    <p class="note">Not: Tarih uyarıları bu sayfada görünür. Bu sürüm henüz arka planda bildirim göndermez.</p>
+      <span class="arrow">›</span>
+    </button>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-label">Toplam ürün</div>
+          <div class="stat-icon">📦</div>
+        </div>
+        <div class="stat-number" id="total">0</div>
+        <div class="stat-foot">Dolabındaki ürünler</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-label">3 gün içinde tarihi dolacak</div>
+          <div class="stat-icon">⏳</div>
+        </div>
+        <div class="stat-number" id="soon">0</div>
+        <div class="stat-foot">Bugün dâhil, tarihi geçmemiş</div>
+      </div>
+    </div>
+
+    <button class="add-card" id="homeAddButton">
+      <div class="feature-icon">＋</div>
+      <div class="card-copy">
+        <div class="card-title">Ürün Ekle</div>
+        <div class="card-description">Ürünlerini ve son kullanma tarihlerini kaydet.</div>
+      </div>
+      <span class="arrow">›</span>
+    </button>
+
+    <div class="section-heading"><h2>Akıllı mutfak</h2></div>
+    <button class="scan-card" data-view="scanView">
+      <div class="feature-icon">▤</div>
+      <div class="card-copy">
+        <div class="card-title">Etiket Okut</div>
+        <div class="card-description">İçindekiler ve alerjenleri incele.</div>
+        <span class="coming">Yakında kullanıma açılacak</span>
+      </div>
+      <span class="arrow">›</span>
+    </button>
   </section>
 
-  <section class="panel">
-    <h2>Ürünlerim</h2>
-    <div class="searchrow">
-      <input id="search" placeholder="Ürün ara..." aria-label="Ürün ara">
+  <!-- DOLABIM -->
+  <section class="view" id="cupboardView">
+    <h1 class="page-title">Dolabım</h1>
+    <p class="page-subtitle">Eklediğin ürünleri ve tarihlerini buradan yönetebilirsin.</p>
+    <button class="primary" id="cupboardAddButton" style="margin-top:0">＋ Yeni ürün ekle</button>
+
+    <div class="search-row">
+      <input id="search" type="search" placeholder="Ürün ara..." aria-label="Ürün ara">
     </div>
     <label for="filter">Ürünleri filtrele</label>
     <select id="filter">
@@ -166,9 +318,163 @@ footer { text-align:center; padding:20px; font-size:12px; color:#849087; }
     </select>
     <div id="foodList" class="empty">Henüz ürün eklemedin.</div>
   </section>
+
+  <!-- ÜRÜN EKLE / DÜZENLE -->
+  <section class="view" id="formView">
+    <h1 class="page-title" id="formTitle">Ürün Ekle</h1>
+    <p class="page-subtitle">Ürün bilgilerini ve ambalajındaki tarihi kaydet.</p>
+    <div class="card">
+      <form id="foodForm">
+        <label for="name">Ürün adı</label>
+        <input id="name" placeholder="Örn. Süt" autocomplete="off" required>
+
+        <div class="form-grid">
+          <div>
+            <label for="category">Kategori</label>
+            <select id="category">
+              <option>Süt ürünleri</option>
+              <option>Meyve ve sebze</option>
+              <option>Et ve balık</option>
+              <option>Bakliyat ve tahıl</option>
+              <option>İçecekler</option>
+              <option>Hazır gıdalar</option>
+              <option>Diğer</option>
+            </select>
+          </div>
+          <div>
+            <label for="quantity">Miktar</label>
+            <input id="quantity" type="number" min="0.01" step="any" value="1" required>
+          </div>
+          <div>
+            <label for="unit">Birim</label>
+            <select id="unit">
+              <option>adet</option><option>kg</option><option>g</option>
+              <option>L</option><option>mL</option><option>paket</option>
+            </select>
+          </div>
+          <div>
+            <label for="location">Saklama yeri</label>
+            <select id="location">
+              <option>Buzdolabı</option><option>Dondurucu</option>
+              <option>Kiler</option><option>Tezgâh</option>
+            </select>
+          </div>
+          <div>
+            <label for="dateType">Tarih türü</label>
+            <select id="dateType">
+              <option value="STT">Son Tüketim Tarihi (STT)</option>
+              <option value="TETT">Tavsiye Edilen Tüketim Tarihi (TETT)</option>
+            </select>
+          </div>
+          <div>
+            <label for="expiry">Tarih</label>
+            <input id="expiry" type="date" required>
+          </div>
+        </div>
+
+        <button class="primary" type="submit" id="saveButton">Ürünü kaydet</button>
+        <button class="cancel hidden" type="button" id="cancelEdit" style="width:100%;margin-top:9px">Düzenlemeyi iptal et</button>
+      </form>
+      <p class="form-note">Ürünlerin bu cihazdaki tarayıcıda saklanır. Bu sürüm henüz arka planda bildirim göndermez.</p>
+    </div>
+  </section>
+
+  <!-- ETİKET OKUT -->
+  <section class="view" id="scanView">
+    <h1 class="page-title">Etiket Okut</h1>
+    <p class="page-subtitle">Ürün etiketlerindeki bilgileri daha kolay anlamana yardımcı olacak özellikler üzerinde çalışıyoruz.</p>
+    <div class="card info-card">
+      <div class="feature-icon">▤</div>
+      <h3>İçindekiler ve alerjenler</h3>
+      <p>Ambalaj fotoğrafından içerik ve alerjen analizi özelliği henüz kullanıma açık değil. Bu ekran şu anda kamera açmaz ve analiz yapmaz.</p>
+      <span class="coming">Yakında kullanıma açılacak</span>
+    </div>
+  </section>
+
+  <!-- İSTATİSTİKLER -->
+  <section class="view" id="statsView">
+    <h1 class="page-title">İstatistikler</h1>
+    <p class="page-subtitle">Mutfağındaki ürünlerin mevcut durumuna göz at.</p>
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">Toplam ürün</div>
+        <div class="stat-number" id="statsTotal">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Yaklaşan tarihler</div>
+        <div class="stat-number" id="statsSoon">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Tarihi geçmiş</div>
+        <div class="stat-number" id="statsExpired">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Tarihi uygun</div>
+        <div class="stat-number" id="statsSafe">0</div>
+      </div>
+    </div>
+    <div class="section-heading"><h2>Kategorilere göre ürünler</h2></div>
+    <div class="card" id="categoryStats"></div>
+  </section>
+
+  <!-- PROFİL -->
+  <section class="view" id="profileView">
+    <h1 class="page-title">Profil</h1>
+    <p class="page-subtitle">Nouri deneyimin ve uygulama bilgileri.</p>
+    <div class="card info-card">
+      <div class="brand">
+        <div class="brand-mark">🌿</div>
+        <div>
+          <div class="brand-name">Nouri</div>
+          <div class="brand-tagline">Eat Smart. Waste Less.</div>
+        </div>
+      </div>
+      <p style="margin-top:16px;color:var(--muted);font-size:13px;line-height:1.7">
+        Gıdalarını takip et, tarihlerini kontrol et ve israfı azaltmaya yardımcı ol.
+      </p>
+    </div>
+    <div class="card info-card">
+      <h3>Verilerin hakkında</h3>
+      <p>Eklediğin ürünler bu cihazdaki tarayıcının yerel hafızasında saklanır. Tarayıcı verilerini silmek ürün kayıtlarını da silebilir.</p>
+    </div>
+    <div class="card info-card">
+      <h3>Bildirimler ve tercihler</h3>
+      <p>Hatırlatıcılar ve kişiselleştirilebilir ayarlar henüz hazır değil. Bu ekranda henüz arka planda çalışan bir bildirim sistemi bulunmuyor.</p>
+    </div>
+  </section>
+
+  <!-- BİLDİRİMLER BİLGİSİ -->
+  <section class="view" id="notificationsView">
+    <h1 class="page-title">Bildirimler</h1>
+    <p class="page-subtitle">Tarihi yaklaşan ürünlerini ana ekrandaki sayaçlardan takip edebilirsin.</p>
+    <div class="card info-card">
+      <h3>Bildirimler henüz etkin değil</h3>
+      <p>Nouri şu anda telefonuna otomatik bildirim göndermez. Bu özellik daha sonra ayrıca eklenecek.</p>
+    </div>
+    <div class="section-heading"><h2>Tarihi yaklaşan ürünler</h2></div>
+    <div id="notificationList" class="empty">Tarihi yaklaşan ürün bulunmuyor.</div>
+  </section>
 </main>
 
-<footer>Nouri · Daha az israf, daha bilinçli tüketim.</footer>
+<nav class="bottom-nav" aria-label="Ana gezinme">
+  <div class="nav-inner">
+    <button class="nav-item active" data-view="homeView">
+      <span class="nav-icon">⌂</span><span>Ana Sayfa</span>
+    </button>
+    <button class="nav-item" data-view="cupboardView">
+      <span class="nav-icon">▦</span><span>Dolabım</span>
+    </button>
+    <button class="nav-item" data-view="scanView">
+      <span class="nav-icon">▤</span><span>Etiket Okut</span>
+    </button>
+    <button class="nav-item" data-view="statsView">
+      <span class="nav-icon">▥</span><span>İstatistikler</span>
+    </button>
+    <button class="nav-item" data-view="profileView">
+      <span class="nav-icon">♙</span><span>Profil</span>
+    </button>
+  </div>
+</nav>
 
 <script>
 const $ = id => document.getElementById(id);
@@ -187,7 +493,9 @@ try {
     unit: f.unit || "adet",
     category: f.category || "Diğer"
   })) : [];
-} catch { foods = []; }
+} catch {
+  foods = [];
+}
 
 function persist() {
   localStorage.setItem("nouriFoods", JSON.stringify(foods));
@@ -196,7 +504,7 @@ function persist() {
 function daysLeft(dateText) {
   if (!dateText) return null;
   const today = new Date();
-  today.setHours(0,0,0,0);
+  today.setHours(0, 0, 0, 0);
   const date = new Date(dateText + "T00:00:00");
   if (Number.isNaN(date.getTime())) return null;
   return Math.round((date - today) / 86400000);
@@ -211,17 +519,89 @@ function statusFor(food) {
   return { kind:"safe", text:"Tarihi uygun" };
 }
 
-function render() {
-  $("total").textContent = foods.length;
-  $("soon").textContent = foods.filter(f => {
-    const d = daysLeft(f.expiry); return d !== null && d >= 0 && d <= 3;
+function changeView(viewId) {
+  document.querySelectorAll(".view").forEach(view => {
+    view.classList.toggle("active", view.id === viewId);
+  });
+  document.querySelectorAll(".nav-item").forEach(button => {
+    button.classList.toggle("active", button.dataset.view === viewId);
+  });
+  if (viewId === "notificationsView") {
+    document.querySelectorAll(".nav-item").forEach(button => button.classList.remove("active"));
+  }
+  window.scrollTo({ top:0, behavior:"smooth" });
+  if (viewId === "cupboardView") renderFoods();
+  if (viewId === "statsView") renderStats();
+  if (viewId === "notificationsView") renderNotifications();
+}
+
+document.querySelectorAll("[data-view]").forEach(button => {
+  button.addEventListener("click", () => changeView(button.dataset.view));
+});
+
+function openAddForm() {
+  resetForm();
+  changeView("formView");
+  $("formTitle").textContent = "Ürün Ekle";
+  $("name").focus({ preventScroll:true });
+}
+$("homeAddButton").addEventListener("click", openAddForm);
+$("cupboardAddButton").addEventListener("click", openAddForm);
+$("notificationsButton").addEventListener("click", () => changeView("notificationsView"));
+
+function renderStats() {
+  const soonCount = foods.filter(f => {
+    const d = daysLeft(f.expiry);
+    return d !== null && d >= 0 && d <= 3;
   }).length;
-  $("expired").textContent = foods.filter(f => {
-    const d = daysLeft(f.expiry); return d !== null && d < 0;
+  const expiredCount = foods.filter(f => {
+    const d = daysLeft(f.expiry);
+    return d !== null && d < 0;
+  }).length;
+  const safeCount = foods.filter(f => {
+    const d = daysLeft(f.expiry);
+    return d !== null && d > 3;
   }).length;
 
+  $("total").textContent = foods.length;
+  $("soon").textContent = soonCount;
+  $("statsTotal").textContent = foods.length;
+  $("statsSoon").textContent = soonCount;
+  $("statsExpired").textContent = expiredCount;
+  $("statsSafe").textContent = safeCount;
+
+  const counts = {};
+  foods.forEach(food => {
+    const category = food.category || "Diğer";
+    counts[category] = (counts[category] || 0) + 1;
+  });
+  const container = $("categoryStats");
+  container.replaceChildren();
+
+  const categories = Object.entries(counts).sort((a,b) => b[1] - a[1]);
+  if (!categories.length) {
+    container.className = "empty";
+    container.textContent = "İstatistik oluşturmak için önce ürün ekle.";
+    return;
+  }
+  container.className = "card";
+  categories.forEach(([name, count]) => {
+    const row = document.createElement("div");
+    row.className = "category-row";
+    const label = document.createElement("span");
+    label.textContent = name;
+    const value = document.createElement("span");
+    value.className = "category-count";
+    value.textContent = count + (count === 1 ? " ürün" : " ürün");
+    row.append(label, value);
+    container.append(row);
+  });
+}
+
+function renderFoods() {
   const query = $("search").value.trim().toLocaleLowerCase("tr");
   const filter = $("filter").value;
+
   const shown = [...foods]
     .filter(f => (f.name || "").toLocaleLowerCase("tr").includes(query))
     .filter(f => {
@@ -238,7 +618,9 @@ function render() {
 
   if (!shown.length) {
     list.className = "empty";
-    list.textContent = foods.length ? "Bu aramayla eşleşen ürün yok." : "Henüz ürün eklemedin.";
+    list.textContent = foods.length
+      ? "Bu aramayla eşleşen ürün yok."
+      : "Henüz ürün eklemedin. İlk ürününü ekleyerek başlayabilirsin.";
     return;
   }
 
@@ -248,23 +630,24 @@ function render() {
     card.className = "food";
 
     const top = document.createElement("div");
-    top.className = "foodtop";
+    top.className = "food-top";
     const details = document.createElement("div");
     const name = document.createElement("div");
-    name.className = "foodname";
+    name.className = "food-name";
     name.textContent = food.name || "İsimsiz ürün";
 
     const info = document.createElement("div");
-    info.className = "foodinfo";
+    info.className = "food-info";
     info.textContent = `${food.quantity} ${food.unit} · ${food.category} · ${food.location}`;
 
     const date = document.createElement("div");
-    date.className = "foodinfo";
+    date.className = "food-info";
     date.textContent = `${food.dateType || "STT"}: ${food.expiry || "Tarih girilmemiş"}`;
 
     const status = statusFor(food);
     const badge = document.createElement("span");
-    badge.className = "status" + (status.kind === "soon" ? " soon" : status.kind === "expired" ? " expired" : "");
+    badge.className = "status" +
+      (status.kind === "soon" ? " soon" : status.kind === "expired" ? " expired" : "");
     badge.textContent = status.text;
 
     details.append(name, info, date, badge);
@@ -287,13 +670,48 @@ function render() {
       foods = foods.filter(f => f.id !== food.id);
       if (editingId === food.id) resetForm();
       persist();
-      render();
+      renderAll();
     });
 
     actions.append(edit, del);
     card.append(actions);
     list.append(card);
   });
+}
+
+function renderNotifications() {
+  const list = $("notificationList");
+  list.replaceChildren();
+  const upcoming = foods.filter(f => {
+    const d = daysLeft(f.expiry);
+    return d !== null && d >= 0 && d <= 3;
+  }).sort((a,b) => (a.expiry || "").localeCompare(b.expiry || ""));
+
+  if (!upcoming.length) {
+    list.className = "empty";
+    list.textContent = "Şu anda tarihi 3 gün içinde dolacak ürünün yok.";
+    return;
+  }
+
+  list.className = "";
+  upcoming.forEach(food => {
+    const card = document.createElement("div");
+    card.className = "food";
+    const name = document.createElement("div");
+    name.className = "food-name";
+    name.textContent = food.name;
+    const info = document.createElement("div");
+    info.className = "food-info";
+    info.textContent = `${food.expiry} · ${statusFor(food).text}`;
+    card.append(name, info);
+    list.append(card);
+  });
+}
+
+function renderAll() {
+  renderStats();
+  renderFoods();
+  renderNotifications();
 }
 
 function startEdit(id) {
@@ -310,14 +728,14 @@ function startEdit(id) {
   $("formTitle").textContent = "Ürünü düzenle";
   $("saveButton").textContent = "Değişiklikleri kaydet";
   $("cancelEdit").classList.remove("hidden");
-  $("formPanel").scrollIntoView({behavior:"smooth", block:"start"});
+  changeView("formView");
 }
 
 function resetForm() {
   editingId = null;
   form.reset();
   $("quantity").value = 1;
-  $("formTitle").textContent = "＋ Yeni ürün ekle";
+  $("formTitle").textContent = "Ürün Ekle";
   $("saveButton").textContent = "Ürünü kaydet";
   $("cancelEdit").classList.add("hidden");
 }
@@ -334,31 +752,39 @@ form.addEventListener("submit", event => {
     dateType: $("dateType").value,
     expiry: $("expiry").value
   };
-  if (!food.name || !food.expiry || !Number.isFinite(food.quantity) || food.quantity <= 0) {
+
+  if (!food.name || !food.expiry ||
+      !Number.isFinite(food.quantity) || food.quantity <= 0) {
     alert("Lütfen ürün bilgilerini kontrol et.");
     return;
   }
+
   if (editingId) {
     foods = foods.map(f => f.id === editingId ? food : f);
   } else {
     foods.push(food);
   }
+
   persist();
   resetForm();
- 
-render();
+  renderAll();
+  changeView("cupboardView");
 });
 
-$("cancelEdit").addEventListener("click", resetForm);
-$("search").addEventListener("input", render);
-$("filter").addEventListener("change", render);
-render();
-</script>
+$("cancelEdit").addEventListener("click", () => {
+  resetForm();
+  changeView("cupboardView");
+});
+$("search").addEventListener("input", renderFoods);
+$("filter").addEventListener("change", renderFoods);
 
-<script>
+renderAll();
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js");
+    navigator.serviceWorker.register("./sw.js").catch(error => {
+      console.error("Service worker kaydedilemedi:", error);
+    });
   });
 }
 </script>
